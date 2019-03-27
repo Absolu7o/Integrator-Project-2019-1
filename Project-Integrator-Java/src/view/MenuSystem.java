@@ -1,7 +1,6 @@
 package view;
 
 import java.awt.Container;
-import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,10 +8,9 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-public class MenuSystem {
+public class MenuSystem extends ViewMaster {
 
-	GridBagConstraints c = new GridBagConstraints();
-	JFrame frame = new JFrame("Calculadora - JAVA");
+	JFrame frame = new JFrame("JAVA");
 	Container pane = frame.getContentPane();
 
 	JButton buttonProgram1 = new JButton("Programa 1");
@@ -35,23 +33,6 @@ public class MenuSystem {
 
 		frame.pack();
 		frame.setVisible(true);
-
-	}
-
-	private GridBagConstraints setGridBagConstraints(int gridy, int gridx, int gridheight, int gridwidth, String text) {
-
-		c.gridy = gridy;
-		c.gridx = gridx;
-		c.gridheight = gridheight;
-		c.gridwidth = gridwidth;
-
-		if (text.equals("HORIZONTAL")) {
-			c.fill = GridBagConstraints.HORIZONTAL;
-		} else if (text.equals("BOTH")) {
-			c.fill = GridBagConstraints.BOTH;
-		}
-
-		return c;
 
 	}
 
