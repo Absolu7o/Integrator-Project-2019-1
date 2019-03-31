@@ -1,0 +1,29 @@
+//Navegação 'Cadastro de Comandas'
+"select code,barcode,active from guestcheck where (code=(select max(code) from guestcheck));" //Último
+"select code,barcode,active from guestcheck where (code=(select min(code) from guestcheck));" //Primeiro
+"select code,barcode,active from guestcheck where (code>" + code + ") limit 1;" //Próximo
+"select code,barcode,active from guestcheck where (code<" + code + ") limit 1;" //Anterior
+"insert into guestcheck (code,barcode,active) values (nextval('guestcheck_code_seq'),'" + barcode + "','" + active +"');" //Inserir
+"update guestcheck set barcode='" + barcode + "',active='" + active + "' where (code=" + code + ");" //Editar
+"delete from guestcheck where (code=" + code + ");" //Deletar
+"select code,barcode,active from guestcheck where (code=" + code + ");" //Atualizar
+
+//Navegação 'Cadastro de Mesas'
+"select code,description,active from tablelist where (code=(select max(code) from tablelist));" //Último
+"select code,description,active from tablelist where (code=(select min(code) from tablelist));" //Primeiro
+"select code,description,active from tablelist where (code>" + code + ") limit 1;" //Próximo
+"select code,description,active from tablelist where (code<" + code + ") limit 1;" //Anterior
+"insert into tablelist (code,description,active) values (nextval('tablelist_code_seq'),'" + description + "','" + active +"');" //Inserir
+"update tablelist set description='" + description + "',active='" + active + "' where (code=" + code + ");" //Editar
+"delete from tablelist where (code=" + code + ");" //Deletar
+"select code,barcode,active from tablelist where (code=" + code + ");" //Atualizar
+
+//Navegação 'Cadastro de Categorias'
+"select code,description from category where (code=(select max(code) from category));" //Último
+"select code,description from category where (code=(select min(code) from category));" //Primeiro
+"select code,description from category where (code>" + code + ") limit 1;" //Próximo
+"select code,description from category where (code<" + code + ") limit 1;" //Anterior
+"insert into category (code,description) values (nextval('category_code_seq'),'" + description + "');" //Inserir
+"update category set description='" + description + "' where (code=" + code + ");" //Editar
+"delete from category where (code=" + code + ");" //Deletar
+"select code,barcode from category where (code=" + code + ");" //Atualizar

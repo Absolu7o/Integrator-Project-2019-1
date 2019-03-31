@@ -7,8 +7,8 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -18,26 +18,26 @@ public abstract class ViewMaster {
 	GridBagConstraints c = new GridBagConstraints();
 	JFrame frame = new JFrame();
 	Container pane = frame.getContentPane();
+	GridBagLayout grid = new GridBagLayout();
 	
-	Insets insets = new Insets(5,5,5,5); //???
-
 	Font fontText = new Font("Arial", Font.LAYOUT_RIGHT_TO_LEFT, 14);
 	Font fontButton = new Font("Arial", Font.BOLD, 14);
 
-	Dimension sizeDefault = new Dimension(45, 30);
+	Dimension sizeDefault = new Dimension(60, 30);
 	
 	Color colorDefaultWhite = Color.decode("#FFFFFF"); // Branco
 	Color colorDefaultBlack = Color.decode("#000000"); // Preto
 	Color colorDefaultBlue = Color.decode("#0030FF"); // Azul
-	Color colorDefaultBackground = Color.decode("#F4F4F4"); // Branco Cinzento
+	Color colorDefaultBackground = Color.decode("#F4F4F4"); // Branco Cinzento //#D4D4D4
 	
 	public ViewMaster() {
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		pane.setLayout(new GridBagLayout());
+		pane.setLayout(grid);
 		pane.setVisible(true);
 
+		c.insets = new Insets(1,1,1,1);
 		//c.weightx = 0.1;
 		//c.weighty = 0.1;
 		//c.ipadx = 5;
@@ -82,6 +82,19 @@ public abstract class ViewMaster {
 
 		return field;
 	}
+	
+	public JComboBox setDefaultCombobox(JComboBox combobox, int gridy, int gridx, int gridheight, int gridwidth, String text) {
+
+		combobox.setPreferredSize(sizeDefault);
+		combobox.setFont(fontText);
+		combobox.setBackground(colorDefaultWhite);
+		combobox.setForeground(colorDefaultBlack);
+		combobox.setVisible(true);
+		
+		pane.add(combobox, setGridBagConstraints(gridy, gridx, gridheight, gridwidth, text));
+
+		return combobox;
+	}
 
 	public GridBagConstraints setGridBagConstraints(int gridy, int gridx, int gridheight, int gridwidth, String text) {
 
@@ -89,7 +102,7 @@ public abstract class ViewMaster {
 		c.gridx = gridx;
 		c.gridheight = gridheight;
 		c.gridwidth = gridwidth;
-
+		
 		if (text.equals("HORIZONTAL")) {
 			c.fill = GridBagConstraints.HORIZONTAL;
 		} else if (text.equals("BOTH")) {
