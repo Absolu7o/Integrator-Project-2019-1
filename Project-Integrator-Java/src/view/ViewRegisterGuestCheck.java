@@ -39,15 +39,8 @@ public class ViewRegisterGuestCheck extends ViewMaster implements ActionListener
 
 	private void createAndShowGUI() {
 
-		grid.columnWidths =  new int[10];
-		for (int i = 0; i < grid.columnWidths.length; i++)
-			grid.columnWidths[i] = 60;
+		setGridLayout(10,4);
 		
-		grid.rowHeights = new int[4];
-		for (int i = 0; i < grid.rowHeights.length; i++)
-
-			grid.rowHeights[i] = 30;
-
 		c.fill = GridBagConstraints.BOTH;
 
 		addButtonDefaultPane();

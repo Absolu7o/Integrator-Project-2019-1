@@ -45,6 +45,18 @@ public abstract class ViewMaster {
 		//c.insets(insets);
 		
 	}
+	
+	public void setGridLayout(int column, int row) {
+		
+		grid.columnWidths =  new int[column];
+		for (int i = 0; i < grid.columnWidths.length; i++)
+			grid.columnWidths[i] = 60;
+		
+		grid.rowHeights = new int[row];
+		for (int i = 0; i < grid.rowHeights.length; i++)
+			grid.rowHeights[i] = 30;
+		
+	}
 
 	public JButton setDefaultButton(JButton button, int gridy, int gridx, int gridheight, int gridwidth, String text) {
 
