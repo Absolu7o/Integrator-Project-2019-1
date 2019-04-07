@@ -4,16 +4,14 @@ import java.awt.GridBagConstraints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-public class ViewRegisterGuestCheck extends ViewMaster implements ActionListener {
+public class ViewRegisterCategory extends ViewMaster implements ActionListener {
 
-	JLabel labelTitle = new JLabel("Cadastro de Comandas");
+	JLabel labelTitle = new JLabel("Cadastro de Categorias");
 	JLabel labelCode = new JLabel("Código");
 	JLabel labelDescription = new JLabel("Descrição");
-	JLabel labelActive = new JLabel("Ativo?");
 	
 	JButton buttonFirst = new JButton("|<");
 	JButton buttonPrevious = new JButton("<");
@@ -29,11 +27,8 @@ public class ViewRegisterGuestCheck extends ViewMaster implements ActionListener
 
 	JTextField fieldCode = new JTextField();
 	JTextField fieldDescription = new JTextField();
-	
-	String[] item = {"SIM","NÃO"};
-	JComboBox comboboxActive = new JComboBox(item);
-	
-	public ViewRegisterGuestCheck() {
+		
+	public ViewRegisterCategory() {
 		createAndShowGUI();
 	}
 
@@ -46,13 +41,12 @@ public class ViewRegisterGuestCheck extends ViewMaster implements ActionListener
 		addButtonDefaultPane();
 		addLabelDefaultPane();
 		addFieldDefaultPane();
-		addComboboxDefaultPane();
-
+		
 		setButtonFunction();
 
 		pane.setBackground(colorDefaultBackground);
 
-		frame.setTitle("Cadastro de Comandas");
+		frame.setTitle("Cadastro de Categorias");
 		frame.pack();
 		frame.setExtendedState(frame.MAXIMIZED_BOTH);
 		frame.setVisible(true);
@@ -64,8 +58,7 @@ public class ViewRegisterGuestCheck extends ViewMaster implements ActionListener
 		labelTitle = setDefaultLabel(labelTitle, 0, 0, 1, 10, "HORIZONTAL");
 		labelCode = setDefaultLabel(labelCode, 3, 0, 1, 2, "HORIZONTAL");
 		labelDescription = setDefaultLabel(labelDescription, 4, 0, 1, 2, "HORIZONTAL");
-		labelActive = setDefaultLabel(labelActive, 4, 5, 1, 1, "HORIZONTAL");
-
+		
 	}
 
 	private void addFieldDefaultPane() {
@@ -75,12 +68,6 @@ public class ViewRegisterGuestCheck extends ViewMaster implements ActionListener
 	
 	}
 	
-	private void addComboboxDefaultPane() {
-		
-		comboboxActive = setDefaultCombobox(comboboxActive, 4, 6, 1, 1, "HORIZONTAL");
-		
-	}
-
 	private void addButtonDefaultPane() {
 
 		buttonFirst = setDefaultButton(buttonFirst, 1, 0, 1, 1, "BOTH");

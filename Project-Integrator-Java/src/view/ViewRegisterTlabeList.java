@@ -8,13 +8,13 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-public class ViewRegisterGuestCheck extends ViewMaster implements ActionListener {
+public class ViewRegisterTlabeList extends ViewMaster implements ActionListener {
 
-	JLabel labelTitle = new JLabel("Cadastro de Comandas");
+	JLabel labelTitle = new JLabel("Cadastro de Mesas");
 	JLabel labelCode = new JLabel("Código");
 	JLabel labelDescription = new JLabel("Descrição");
 	JLabel labelActive = new JLabel("Ativo?");
-	
+
 	JButton buttonFirst = new JButton("|<");
 	JButton buttonPrevious = new JButton("<");
 	JButton buttonNext = new JButton(">");
@@ -29,18 +29,18 @@ public class ViewRegisterGuestCheck extends ViewMaster implements ActionListener
 
 	JTextField fieldCode = new JTextField();
 	JTextField fieldDescription = new JTextField();
-	
-	String[] item = {"SIM","NÃO"};
+
+	String[] item = { "SIM", "NÃO" };
 	JComboBox comboboxActive = new JComboBox(item);
-	
-	public ViewRegisterGuestCheck() {
+
+	public ViewRegisterTlabeList() {
 		createAndShowGUI();
 	}
 
 	private void createAndShowGUI() {
 
-		setGridLayout(10,4);
-		
+		setGridLayout(10, 4);
+
 		c.fill = GridBagConstraints.BOTH;
 
 		addButtonDefaultPane();
@@ -52,7 +52,7 @@ public class ViewRegisterGuestCheck extends ViewMaster implements ActionListener
 
 		pane.setBackground(colorDefaultBackground);
 
-		frame.setTitle("Cadastro de Comandas");
+		frame.setTitle("Cadastro de Mesas");
 		frame.pack();
 		frame.setExtendedState(frame.MAXIMIZED_BOTH);
 		frame.setVisible(true);
@@ -72,13 +72,13 @@ public class ViewRegisterGuestCheck extends ViewMaster implements ActionListener
 
 		fieldCode = setDefaultField(fieldCode, 3, 2, 1, 1, "HORIZONTAL");
 		fieldDescription = setDefaultField(fieldDescription, 4, 2, 1, 3, "HORIZONTAL");
-	
+
 	}
-	
+
 	private void addComboboxDefaultPane() {
-		
+
 		comboboxActive = setDefaultCombobox(comboboxActive, 4, 6, 1, 1, "HORIZONTAL");
-		
+
 	}
 
 	private void addButtonDefaultPane() {
@@ -93,12 +93,12 @@ public class ViewRegisterGuestCheck extends ViewMaster implements ActionListener
 		buttonConfirm = setDefaultButton(buttonConfirm, 1, 7, 1, 1, "BOTH");
 		buttonCancel = setDefaultButton(buttonCancel, 1, 8, 1, 1, "BOTH");
 		buttonRefresh = setDefaultButton(buttonRefresh, 1, 9, 1, 1, "BOTH");
-				
+
 		buttonSearch = setDefaultButton(buttonSearch, 3, 3, 1, 1, "BOTH");
 
 		buttonConfirm.setEnabled(false);
 		buttonCancel.setEnabled(false);
-		
+
 	}
 
 	private void setButtonFunction() {
